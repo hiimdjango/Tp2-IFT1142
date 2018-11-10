@@ -1,0 +1,69 @@
+.barreDoutils {
+    background-color:#2f5e53;
+    height:100%;
+    width: 100%;
+    margin:auto;
+    text-align: center;
+    border-radius:5px;
+    letter-spacing: 2px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.btn {
+    margin-top:10px;
+    margin-bottom: 20px;
+    margin-left:20px;
+    color:white;
+    background-color:#1c2b17;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size:15px;
+    padding: 10px;
+    border:none;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.btn:hover {
+    background-color:#acb296;
+}
+
+td {
+    background-color:green;
+    color:white;
+    border:1px solid white;
+    padding:5px;
+    text-align: center;
+    
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 75%;
+    margin: auto;
+    margin-top:20px;
+}
+
+.main {
+    background-color:blue;
+}
+
+#patient {
+    margin-top:40px;
+    margin-left: 60px;
+    font-size: 16px;
+    background-color: green;
+    color:white;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+
+}
+#messagePatient {
+    margin-top:40px;
+    margin-bottom: -30px;
+    margin-left: 60px;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+}

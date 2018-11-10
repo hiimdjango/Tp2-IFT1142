@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Hopital</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <script src="hospitalisations.js"></script>
+     </head>
+    
+    <body>
+        
+        
+        <header class="barreDoutils">
+            <h2 style="color:white; padding-top:20px; font-size:40px;">Gestion des hospitalisations</h2>
+            <button class="btn" onclick="getTabPatients()" >Liste des patients</button>
+            <button class="btn" onclick="getTabEtablissements()">Liste des établissements</button>
+            <button class="btn" onclick="getTabHospitalisations()">Liste des hospitalisations</button>
+            <button class="btn" onclick="getSelectPatient()">Hospitalisation par patient</button>
+            <button class="btn">Hospitalisation par établissement et par spécialité</button>
+        </header>
+        
+        <section id="zoneDaffichage">
+            <div id="affichage"></div>
+            <div>
+                <p id="messagePatient" style="display:none;">Veuillez Choisir le numero du patient:</p>
+                <select id='patient' style="display:none;" onchange="getHospitalisations()"></select>
+            </div>
+        </section>
+        
+        <div>
+            <p style="text-align: center; background-color:#2f5e53; width:50px; margin:auto; margin-top:20px; border-radius:5px; color:white; letter-spacing: 1px; padding:5px;">Status</p>
+            <p id="status" style="margin-top:10px; text-align: center; font-family: 'Quicksand', sans-serif;" id="msg"></p>
+        </div>
+        
+    </body>
+</html>
