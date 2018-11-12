@@ -10,6 +10,8 @@ var tabEtablissements = [
     { "etablissement" : 1234, "nom" :"Centre hospitalier Sud", "adresse":"1234 Boul. Sud, Montréal, Qc", "postalCode":"H2M 3Y6", "phone":"(514) 123-1234"},{ "etablissement" : 2346, "nom" :"Hopital Nord", "adresse":"7562 rue du Souvenir, Nordville,Qc", "postalCode":"J4R 2Z5", "phone":"(450) 222-3333"},{ "etablissement" : 3980, "nom" :"Hopital Centre", "adresse":"4637 Boul. de l'Eglise, Montréal, Qc", "postalCode":"H3J 4K8", "phone":"(514) 123-5678"},{ "etablissement" : 4177, "nom" :"Centre hospitalier Est", "adresse":"12 rue Bernard, Repentigny, Qc", "postalCode":"J8R 3K5", "phone":"(450) 589-2345"},{ "etablissement" : 7306, "nom" :"Hopital du Salut", "adresse":"11 Rue de la Redemption, St-Basile, Qc", "postalCode":"J8H 2D4", "phone":"(450) 345-6789"},{ "etablissement" : 8895, "nom" :"Dernier recours", "adresse":"999 rue St-Pierre, Longeuil, Qc", "postalCode":"J7B 3J5", "phone":"(450) 555-6741"}
 ];
 
+
+
 function hideDiv(id) {
     var divToHide = document.getElementById(id);
     divToHide.style.display = 'none';
@@ -17,6 +19,7 @@ function hideDiv(id) {
 }
 
 function getTabPatients() {
+    document.getElementById('selectHS').style.display = 'none';
     var zoneAffichage = document.getElementById('affichage');
     zoneAffichage.style.display = "block";
     var table = '<tr ><td class="main">Dossier</td><td class="main">Nom</td><td class="main">Prenom</td><td class="main">Date de Naissance</td><td class="main">Sexe</td></tr>';
@@ -50,6 +53,7 @@ function getTabPatients() {
 }
 
 function getTabEtablissements() {
+    document.getElementById('selectHS').style.display = 'none';
     var zoneAffichage = document.getElementById('affichage');
     zoneAffichage.style.display = 'block';
     var table = '<tr ><td class="main">Etablissement</td><td class="main">Nom</td><td class="main">Adresse</td><td class="main">Code Postal</td><td class="main">Telehone</td></tr>';
@@ -88,6 +92,7 @@ function getTabEtablissements() {
 }
 
 function getTabHospitalisations() {
+    document.getElementById('selectHS').style.display = 'none';
     var zoneAffichage = document.getElementById('affichage');
     zoneAffichage.style.display = 'block';
     var table = '<tr ><td class="main">Code Etablissement</td><td class="main">No Dossier Patient</td><td class="main">Date Admission</td><td class="main">Date Sortie</td><td class="main">Spécialité</td></tr>';
@@ -124,6 +129,9 @@ function getTabHospitalisations() {
 }
 
 function getSelectPatient() {
+    document.getElementById('selectHS').style.display = 'none';
+    document.getElementById('status').innerHTML="Choisir le code patient pour afficher les hospitalisations.";
+    document.getElementById('selectH').style.display = 'block';
     var zoneAffichage = document.getElementById('affichage');
     zoneAffichage.style.display = 'none';
     var status = document.getElementById('status');
@@ -186,7 +194,117 @@ function getHospitalisations() {
     
 }
 
+function getFirstSelect() {
+    document.getElementById('specialite').style.display = 'none';
+    document.getElementById('msgS').style.display = 'none';
+    document.getElementById('affichage').style.display ='none';
+    document.getElementById('selectH').style.display = 'none';
+    document.getElementById('status').innerHTML="Choisir l'établissement pour afficher.";
+    document.getElementById('selectHS').style.display = 'block';
+    var status = document.getElementById('status');
+    var liste = document.getElementById('etablissement');
+    var select ='<option>Choisir..</options>';
+    
+    for (var i in tabEtablissements) {
+            select += "<option value='" + tabEtablissements[i].etablissement + "'>" + tabEtablissements[i].etablissement + " ( " + tabEtablissements[i].nom + " )" + "</option>"
+    }
 
+    liste.innerHTML =  select ;
+}
+
+function getSpecialite() {
+    var selected = document.getElementById('etablissement');
+    document.getElementById('msgS').style.display = 'block';
+    var liste = document.getElementById('specialite');
+    liste.style.display = 'block';
+    var status = document.getElementById('status');
+    status.innerHTML="Choisir la spécialité";
+    var myArray = [];
+    
+    var select ='<option>Choisir la spécialité ..</options>';
+    
+    for (var i in tabHospitalisations) {
+        if (tabHospitalisations[i].code == selected.value) {
+                    
+            myArray.push(tabHospitalisations[i].specialite);    
+            // Stocker les valeurs dans un tableau pour trier les doubles
+        } 
+    }
+    for (var i=0;i< myArray.length;i++) { //Boucle pour trier les doubles
+        for (var j=i+1 ;j< myArray.length;j++ ) {
+            if (myArray[i] == myArray[j]) {
+                myArray.splice(j,1); //Enlever l'element doublé
+            }
+        }
+    }
+    
+    for (var i in myArray) { //Inserer les elements du tableau dans le Select
+        select += "<option value='" + myArray[i] + "'>" + myArray[i] + "</option>"
+    }
+    console.log(myArray)
+
+    liste.innerHTML = select;
+    
+    
+}
+
+function getInformationsTableau() {
+    var affichage = document.getElementById('affichage');
+    var tableE = '<tr ><td class="main">Etablissement</td><td class="main">Nom</td><td class="main">Adresse</td><td class="main">Code Postal</td><td class="main">Telehone</td></tr>';
+    var table = '<tr ><td class="main">Code Etablissement</td><td class="main">No Dossier Patient</td><td class="main">Date Admission</td><td class="main">Date Sortie</td><td class="main">Spécialité</td></tr>';
+    var selectedEtablissement = document.getElementById('etablissement').value;
+    var selectedSpecialite = document.getElementById('specialite').value;
+    var k=0;
+    
+    for (var i in tabHospitalisations) {
+        if(tabHospitalisations[i].specialite == selectedSpecialite && tabHospitalisations[i].code == selectedEtablissement) {
+            k++;
+            if (k%2==0) {
+            table += '<tr>';
+        
+                table += '<td style ="background-color:black">' + tabHospitalisations[i].code + '</td>';
+                table += '<td style ="background-color:black">' + tabHospitalisations[i].nDossier + '</td>';
+                table += '<td style ="background-color:black">' + tabHospitalisations[i].dateAdmis + '</td>';
+                table += '<td style ="background-color:black">' + tabHospitalisations[i].dateSortie + '</td>';
+                table += '<td style ="background-color:black">' + tabHospitalisations[i].specialite + '</td>';
+        
+            table += '</tr>'; 
+            } else {
+                table += '<tr>';
+        
+            table += '<td>' + tabHospitalisations[i].code + '</td>';
+            table += '<td>' + tabHospitalisations[i].nDossier + '</td>';
+            table += '<td>' + tabHospitalisations[i].dateAdmis + '</td>';
+            table += '<td>' + tabHospitalisations[i].dateSortie + '</td>';
+            table += '<td>' + tabHospitalisations[i].specialite + '</td>';
+        
+            table += '</tr>'; 
+            
+            }
+            
+            for (var i in tabEtablissements) {
+                if(tabEtablissements[i].etablissement == selectedEtablissement) {
+                    tableE += '<tr>';
+        
+                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].etablissement + '</td>';
+                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].nom + '</td>';
+                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].adresse + '</td>';
+                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].postalCode + '</td>';
+                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].phone + '</td>';
+        
+                    tableE += '</tr>';
+                }
+            }
+            
+            affichage.innerHTML ='<button onclick=hideDiv("affichage")  style="float:left; background-color:red; border-radius:5px; color:white;">X</button>' + '<table>' + tableE + '</table>' + '<table>' + table + '</table>';
+            affichage.style.display = 'block';
+            document.getElementById('selectH').style.display = 'none';
+            document.getElementById('selectHS').style.display = 'none';
+            document.getElementById('status').innerHTML ='Le(s) Hospitalisation(s) sont affichée(s)';
+            
+        }
+    }
+}
 
 
 

@@ -18,14 +18,22 @@
             <button class="btn" onclick="getTabEtablissements()">Liste des établissements</button>
             <button class="btn" onclick="getTabHospitalisations()">Liste des hospitalisations</button>
             <button class="btn" onclick="getSelectPatient()">Hospitalisation par patient</button>
-            <button class="btn">Hospitalisation par établissement et par spécialité</button>
+            <button class="btn" onclick="getFirstSelect()" >Hospitalisation par établissement et par spécialité</button>
         </header>
         
         <section id="zoneDaffichage">
             <div id="affichage"></div>
-            <div>
+            <div id="selectH">
                 <p id="messagePatient" style="display:none;">Veuillez Choisir le numero du patient:</p>
                 <select id='patient' style="display:none;" onchange="getHospitalisations()"></select>
+            </div>
+            <div id="selectHS" style="display:none;">
+                <p id="msgH">Veuillez Choisir l'établissement:</p>
+                <select onchange="getSpecialite()" id='etablissement'></select>
+                <button>Fermer</button>
+                <p id="msgS" style="display:none;">Veuillez Choisir la spécialité:</p>
+                <select id="specialite" onchange="getInformationsTableau()" style="display:none;"></select>
+                
             </div>
         </section>
         
