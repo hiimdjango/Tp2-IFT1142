@@ -1,3 +1,6 @@
+//Ahmed Ben Daya
+//p1161664
+
 var tabPatients = [ 
     { "dossier" : 1, "nom":"leger", "prenom":"Emile", "naissance":"26 Mars 1917", "sexe":"M" }, {"dossier":2, "nom":"Bernard", "prenom":"Marie", "naissance":"03 Fevrier 1946", "sexe":"F"}, {"dossier":3, "nom":"Chartrand", "prenom":"Guy", "naissance":"05 Avril 1959", "sexe":"M"},{"dossier":4, "nom":"Coté", "prenom":"André", "naissance":"02 Septembre 1978", "sexe":"M"}, {"dossier":5, "nom":"Lavole", "prenom":"Carole", "naissance":"04 Novembre 1973", "sexe":"F"}, {"dossier":6, "nom":"Martin", "prenom":"Diane", "naissance":"02 Decembre 1965", "sexe":"F"}, {"dossier":7, "nom":"Lacroix", "prenom":"Pauline", "naissance":"25 Janvier 1956", "sexe":"F"}, {"dossier":8, "nom":"St-Jean", "prenom":"Arthur", "naissance":"07 Octobre 1912", "sexe":"M"},{"dossier":9, "nom":"Bechard", "prenom":"Marc", "naissance":"08 Aout 1980", "sexe":"M"},{"dossier":10, "nom":"Chantrand", "prenom":"Mario", "naissance":"23 Juillet 1947", "sexe":"M"}
  ];
@@ -32,11 +35,11 @@ function getTabPatients() {
         if (i%2==0) {
         table += '<tr>';
         
-            table += '<td style ="background-color:black">' + tabPatients[i].dossier + '</td>';
-            table += '<td style ="background-color:black">' + tabPatients[i].nom + '</td>';
-            table += '<td style ="background-color:black">' + tabPatients[i].prenom + '</td>';
-            table += '<td style ="background-color:black">' + tabPatients[i].naissance + '</td>';
-            table += '<td style ="background-color:black">' + tabPatients[i].sexe + '</td>';
+            table += '<td class="lighter">' + tabPatients[i].dossier + '</td>';
+            table += '<td class="lighter">' + tabPatients[i].nom + '</td>';
+            table += '<td class="lighter">' + tabPatients[i].prenom + '</td>';
+            table += '<td class="lighter">' + tabPatients[i].naissance + '</td>';
+            table += '<td class="lighter">' + tabPatients[i].sexe + '</td>';
         
         table += '</tr>';
         } else {
@@ -48,7 +51,7 @@ function getTabPatients() {
         }
     }
     
-    zoneAffichage.innerHTML='<button onclick=hideDiv("affichage")  style="float:left; background-color:red; border-radius:5px; color:white;">X</button>' + '<table>' + table + '</table>';
+    zoneAffichage.innerHTML='<button onclick=hideDiv("affichage") class="button">X</button>' + '<table>' + table + '</table>';
     status.innerHTML = 'La liste des patients a été chargée avec succées'
 }
 
@@ -66,11 +69,11 @@ function getTabEtablissements() {
         if (i%2 == 0) {
         table += '<tr>';
         
-            table += '<td style ="background-color:black">' + tabEtablissements[i].etablissement + '</td>';
-            table += '<td style ="background-color:black">' + tabEtablissements[i].nom + '</td>';
-            table += '<td style ="background-color:black">' + tabEtablissements[i].adresse + '</td>';
-            table += '<td style ="background-color:black">' + tabEtablissements[i].postalCode + '</td>';
-            table += '<td style ="background-color:black">' + tabEtablissements[i].phone + '</td>';
+            table += '<td class="lighter">' + tabEtablissements[i].etablissement + '</td>';
+            table += '<td class="lighter">' + tabEtablissements[i].nom + '</td>';
+            table += '<td class="lighter">' + tabEtablissements[i].adresse + '</td>';
+            table += '<td class="lighter">' + tabEtablissements[i].postalCode + '</td>';
+            table += '<td class="lighter">' + tabEtablissements[i].phone + '</td>';
         
         table += '</tr>';
         } else {
@@ -86,7 +89,7 @@ function getTabEtablissements() {
         }
     }
     
-    zoneAffichage.innerHTML='<button onclick=hideDiv("affichage")  style="float:left; background-color:red; border-radius:5px; color:white;">X</button>' + '<table>' + table + '</table>';
+    zoneAffichage.innerHTML='<button onclick=hideDiv("affichage") class="button">X</button>' + '<table>' + table + '</table>';
     status.innerHTML = 'La liste des établissements a été chargée avec succées'
     
 }
@@ -104,11 +107,11 @@ function getTabHospitalisations() {
         if (i%2==0) {
         table += '<tr>';
         
-            table += '<td style ="background-color:black">' + tabHospitalisations[i].code + '</td>';
-            table += '<td style ="background-color:black">' + tabHospitalisations[i].nDossier + '</td>';
-            table += '<td style ="background-color:black">' + tabHospitalisations[i].dateAdmis + '</td>';
-            table += '<td style ="background-color:black">' + tabHospitalisations[i].dateSortie + '</td>';
-            table += '<td style ="background-color:black">' + tabHospitalisations[i].specialite + '</td>';
+            table += '<td class="lighter">' + tabHospitalisations[i].code + '</td>';
+            table += '<td class="lighter">' + tabHospitalisations[i].nDossier + '</td>';
+            table += '<td class="lighter">' + tabHospitalisations[i].dateAdmis + '</td>';
+            table += '<td class="lighter">' + tabHospitalisations[i].dateSortie + '</td>';
+            table += '<td class="lighter">' + tabHospitalisations[i].specialite + '</td>';
         
         table += '</tr>';
         } else {
@@ -123,7 +126,7 @@ function getTabHospitalisations() {
         table += '</tr>';
         }
         
-        zoneAffichage.innerHTML='<button onclick=hideDiv("affichage")  style="float:left; background-color:red; border-radius:5px; color:white;">X</button>' + '<table>' + table + '</table>';
+        zoneAffichage.innerHTML='<button onclick=hideDiv("affichage") class="button">X</button>' + '<table>' + table + '</table>';
     status.innerHTML = 'La liste des Hospitalisations a été chargée avec succées'
     }
 }
@@ -160,11 +163,11 @@ function getHospitalisations() {
             if(k%2==0) { //les cases pairs ont une couleur et les impairs une autres.
                 table += '<tr>';
         
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].code + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].nDossier + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].dateAdmis + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].dateSortie + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].specialite + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].code + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].nDossier + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].dateAdmis + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].dateSortie + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].specialite + '</td>';
         
             table += '</tr>';
             var exists = true;
@@ -183,7 +186,7 @@ function getHospitalisations() {
         }
     }
     if (exists == true) {
-        zoneAffichage.innerHTML='<button onclick=hideDiv("affichage")  style="float:left; background-color:red; border-radius:5px; color:white;">X</button>' + '<table>' + table + '</table>';
+        zoneAffichage.innerHTML='<button onclick=hideDiv("affichage") class="button">X</button>' + '<table>' + table + '</table>';
         zoneAffichage.style.display = 'block';
         selected.style.display = 'none';
         status.innerHTML ='Le(s) Hospitalisation(s) du patient sont affiché(s).';
@@ -262,11 +265,11 @@ function getInformationsTableau() {
             if (k%2==0) {
             table += '<tr>';
         
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].code + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].nDossier + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].dateAdmis + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].dateSortie + '</td>';
-                table += '<td style ="background-color:black">' + tabHospitalisations[i].specialite + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].code + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].nDossier + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].dateAdmis + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].dateSortie + '</td>';
+                table += '<td class="lighter">' + tabHospitalisations[i].specialite + '</td>';
         
             table += '</tr>'; 
             } else {
@@ -284,19 +287,20 @@ function getInformationsTableau() {
             
             for (var i in tabEtablissements) {
                 if(tabEtablissements[i].etablissement == selectedEtablissement) {
-                    tableE += '<tr>';
+                    tableE = '<tr ><td class="main">Etablissement</td><td class="main">Nom</td><td class="main">Adresse</td><td class="main">Code Postal</td><td class="main">Telehone</td></tr>'
+                    tableE += '<tr>'; //Pour eviter la repetition des cases et reintiliaser le tableau s'il en trouve un deuxieme dans la boucle
         
-                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].etablissement + '</td>';
-                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].nom + '</td>';
-                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].adresse + '</td>';
-                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].postalCode + '</td>';
-                    tableE += '<td style ="background-color:black">' + tabEtablissements[i].phone + '</td>';
+                    tableE += '<td class="etablissement">' + tabEtablissements[i].etablissement + '</td>';
+                    tableE += '<td class="etablissement">' + tabEtablissements[i].nom + '</td>';
+                    tableE += '<td class="etablissement">' + tabEtablissements[i].adresse + '</td>';
+                    tableE += '<td class="etablissement">' + tabEtablissements[i].postalCode + '</td>';
+                    tableE += '<td class="etablissement">' + tabEtablissements[i].phone + '</td>';
         
                     tableE += '</tr>';
                 }
             }
             
-            affichage.innerHTML ='<button onclick=hideDiv("affichage")  style="float:left; background-color:red; border-radius:5px; color:white;">X</button>' + '<table>' + tableE + '</table>' + '<table>' + table + '</table>';
+            affichage.innerHTML ='<button onclick=hideDiv("affichage") class="button">X</button>' + '<table>' + tableE + '</table>' + '<table>' + table + '</table>';
             affichage.style.display = 'block';
             document.getElementById('selectH').style.display = 'none';
             document.getElementById('selectHS').style.display = 'none';
@@ -306,5 +310,8 @@ function getInformationsTableau() {
     }
 }
 
+function secondHideDiv() {
+    document.getElementById('selectHS').style.display ='none';
+}
 
 

@@ -1,3 +1,4 @@
+<!-- Ahmed Ben Daya / p1161664 -->
 <!DOCTYPE html>
 <html>
 
@@ -12,33 +13,38 @@
     <body>
         
         
-        <header class="barreDoutils">
-            <h2 style="color:white; padding-top:20px; font-size:40px;">Gestion des hospitalisations</h2>
+        <header class="header">
+            <h1 id="title">Gestion des hospitalisations</h1>
+        </header>
+        <div class="options">
             <button class="btn" onclick="getTabPatients()" >Liste des patients</button>
             <button class="btn" onclick="getTabEtablissements()">Liste des établissements</button>
             <button class="btn" onclick="getTabHospitalisations()">Liste des hospitalisations</button>
             <button class="btn" onclick="getSelectPatient()">Hospitalisation par patient</button>
             <button class="btn" onclick="getFirstSelect()" >Hospitalisation par établissement et par spécialité</button>
-        </header>
+        </div>
         
         <section id="zoneDaffichage">
-            <div id="affichage"></div>
+            <div id="affichageMiseEnPage">
+                <div id="affichage"></div>
+            
             <div id="selectH">
-                <p id="messagePatient" style="display:none;">Veuillez Choisir le numero du patient:</p>
+                <p id="messagePatient" style="display:none;" class="msg">Veuillez Choisir le numero du patient:</p>
                 <select id='patient' style="display:none;" onchange="getHospitalisations()"></select>
             </div>
             <div id="selectHS" style="display:none;">
-                <p id="msgH">Veuillez Choisir l'établissement:</p>
+                <p id="msgH" class="msg">Veuillez Choisir l'établissement:</p>
                 <select onchange="getSpecialite()" id='etablissement'></select>
-                <button>Fermer</button>
-                <p id="msgS" style="display:none;">Veuillez Choisir la spécialité:</p>
+                <button id="secondHideButton" onclick="secondHideDiv()">Fermer</button>
+                <p class="msg" id="msgS" style="display:none;">Veuillez Choisir la spécialité: <br> (seules les specialites disponibles apparaitront!)</p>
                 <select id="specialite" onchange="getInformationsTableau()" style="display:none;"></select>
                 
+            </div>
             </div>
         </section>
         
         <div>
-            <p style="text-align: center; background-color:#2f5e53; width:50px; margin:auto; margin-top:20px; border-radius:5px; color:white; letter-spacing: 1px; padding:5px;">Status</p>
+            <p style="text-align: center; background-color:#F7B733; width:50px; margin:auto; margin-top:20px; border-radius:5px; color:white; letter-spacing: 1px; padding:5px;">Status</p>
             <p id="status" style="margin-top:10px; text-align: center; font-family: 'Quicksand', sans-serif;" id="msg"></p>
         </div>
         

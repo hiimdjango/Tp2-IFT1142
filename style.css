@@ -1,12 +1,19 @@
-.barreDoutils {
-    background-color:#2f5e53;
-    height:100%;
-    width: 100%;
-    margin:auto;
+/* Ahmed Ben Daya / p1161664 */
+.header {
+    background-image:url(images/backgroundHeader.png);
+    background-size: cover;
+    height: 100px;;
     text-align: center;
     border-radius:5px;
     letter-spacing: 2px;
     font-family: 'Quicksand', sans-serif;
+}
+#title {
+    color:white;
+    padding-top:25px; 
+}
+.options {
+    text-align: center;
 }
 
 .btn {
@@ -14,7 +21,7 @@
     margin-bottom: 20px;
     margin-left:20px;
     color:white;
-    background-color:#1c2b17;
+    background-color:#3fb0ac;
     border-radius: 10px;
     font-weight: bold;
     font-size:15px;
@@ -29,11 +36,12 @@
 }
 
 td {
-    background-color:green;
+    background-color:dimgrey;
     color:white;
-    border:1px solid white;
+    border:1px solid black;
     padding:5px;
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
     
 }
 
@@ -46,24 +54,58 @@ table {
 }
 
 .main {
-    background-color:blue;
+    background-color:Black;
+    border: 1px solid white;
 }
 
-#patient {
+select {
     margin-top:40px;
     margin-left: 60px;
     font-size: 16px;
-    background-color: green;
+    background-color: dimgrey;
     color:white;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 2px;
     margin-bottom: 40px;
 
 }
-#messagePatient {
+.msg {
     margin-top:40px;
     margin-bottom: -30px;
     margin-left: 60px;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 2px;
+}
+.lighter {
+    background-color: white;
+    color:black;
+}
+.etablissement {
+    background-color:white;
+    color: black;
+}
+.button {
+    position: absolute;
+    background-color:red;
+    color:white;
+    border-radius:5px;
+    left:50px;
+}
+#affichageMiseEnPage {
+    height: 400px;
+    overflow: auto;
+    background-image:url('images/background.jpg');
+    background-size: 100%;
+}
+#secondHideButton {
+    background-color:orangered;
+    font-family: 'Quicksand', sans-serif;
+    color:white;
+    font-size:16px;
+    letter-spacing: 1px;
+    border-radius:6px;
+    font-weight: bold;
+}
+#secondHideButton:hover {
+    background-color:indianred;
 }
